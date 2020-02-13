@@ -2,9 +2,9 @@
 
 $date = date('Y');
 $header = <<<EOF
-_____
-@link      https://github.com/maileryio/_____
-@package   _____
+Dashboard module for Mailery Platform
+@link      https://github.com/maileryio/mailery-dashboard
+@package   Mailery\Dashboard
 @license   BSD-3-Clause
 @copyright Copyright (c) {$date}, Mailery (https://mailery.io/)
 EOF;
