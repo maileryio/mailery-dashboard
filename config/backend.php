@@ -10,12 +10,19 @@ declare(strict_types=1);
  * @copyright Copyright (c) 2020, Mailery (https://mailery.io/)
  */
 
-use Mailery\Menu\Sidebar\SidebarMenu;
+use Mailery\Dashboard\Provider\RoutesProvider;
+use Mailery\Menu\Sidebar\SidebarMenuInterface;
+use Mailery\Web\Factory\RoutesProviderFactory;
 use Psr\Container\ContainerInterface;
 use Yiisoft\Router\UrlGeneratorInterface;
 
 return [
-    SidebarMenu::class => [
+    RoutesProviderFactory::class => [
+        '__construct()' => [
+            RoutesProvider::class,
+        ],
+    ],
+    SidebarMenuInterface::class => [
         'setItems()' => [
             'items' => [
                 'dashboard' => [
