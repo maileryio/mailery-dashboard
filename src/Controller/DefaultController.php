@@ -22,12 +22,6 @@ class DefaultController extends Controller
      */
     public function index(): ResponseInterface
     {
-        $response = $this->getResponseFactory()->createResponse();
-
-        $output = $this->render('index');
-
-        $response->getBody()->write($output);
-
-        return $response;
+        return $this->render('index');
     }
 }
