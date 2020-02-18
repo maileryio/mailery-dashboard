@@ -46,10 +46,7 @@
         },
         "config-plugin": {
             "params": "config/params.php",
-            "backend": [
-                "$web",
-                "config/backend.php"
-            ]
+            "backend": "config/backend.php"
         }
     },
     "config": {

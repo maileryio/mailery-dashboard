@@ -10,4 +10,14 @@ declare(strict_types=1);
  * @copyright Copyright (c) 2020, Mailery (https://mailery.io/)
  */
 
-return [];
+use Yiisoft\Router\Route;
+use Mailery\Dashboard\Controller\DefaultController;
+
+return [
+    'router' => [
+        'routes' => [
+            Route::get('/', [DefaultController::class, 'index'])
+                ->name('/'),
+        ],
+    ],
+];
