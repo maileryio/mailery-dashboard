@@ -12,15 +12,17 @@ declare(strict_types=1);
 
 namespace Mailery\Dashboard\Controller;
 
-use Mailery\Web\Controller;
-use Psr\Http\Message\ResponseInterface;
+use Mailery\Dashboard\Controller;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 
 class DefaultController extends Controller
 {
     /**
-     * @return ResponseInterface
+     * @param Request $request
+     * @return Response
      */
-    public function index(): ResponseInterface
+    public function index(Request $request): Response
     {
         return $this->render('index');
     }

@@ -10,25 +10,4 @@ declare(strict_types=1);
  * @copyright Copyright (c) 2020, Mailery (https://mailery.io/)
  */
 
-use Mailery\Menu\Sidebar\SidebarMenuInterface;
-use Psr\Container\ContainerInterface;
-use Yiisoft\Router\UrlGeneratorInterface;
-
-return [
-    SidebarMenuInterface::class => [
-        'setItems()' => [
-            'items' => [
-                'dashboard' => [
-                    'label' => function () {
-                        return 'Dashboard';
-                    },
-                    'icon' => 'dashboard',
-                    'url' => function (ContainerInterface $container) {
-                        return $container->get(UrlGeneratorInterface::class)
-                            ->generate('/');
-                    },
-                ],
-            ],
-        ],
-    ],
-];
+return [];

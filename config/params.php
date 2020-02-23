@@ -10,14 +10,31 @@ declare(strict_types=1);
  * @copyright Copyright (c) 2020, Mailery (https://mailery.io/)
  */
 
-use Yiisoft\Router\Route;
 use Mailery\Dashboard\Controller\DefaultController;
+use Mailery\Menu\MenuItem;
+use Mailery\Brand\Service\BrandLocator;
+use Opis\Closure\SerializableClosure;
+use Yiisoft\Router\Route;
+use Yiisoft\Router\UrlGeneratorInterface;
 
 return [
     'router' => [
         'routes' => [
-            Route::get('/', [DefaultController::class, 'index'])
+            Route::get('/brand/{brandId:\d+}', [DefaultController::class, 'index'])
                 ->name('/'),
+        ],
+    ],
+
+    'menu' => [
+        'sidebar' => [
+            'items' => [
+                'dashboard' => (new MenuItem())
+                    ->withLabel('Dashboard')
+                    ->withIcon('dashboard')
+                    ->withUrl(new SerializableClosure(function (UrlGeneratorInterface $urlGenerator, BrandLocator $brandLocator) {
+                        return $urlGenerator->generate('/', ['brandId' => $brandLocator->getBrand()->getId()]);
+                    })),
+            ],
         ],
     ],
 ];
