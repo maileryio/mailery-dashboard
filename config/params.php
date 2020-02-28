@@ -21,7 +21,7 @@ return [
     'router' => [
         'routes' => [
             Route::get('/brand/{brandId:\d+}', [DefaultController::class, 'index'])
-                ->name('/'),
+                ->name('/dashboard/default/index'),
         ],
     ],
 
@@ -32,7 +32,7 @@ return [
                     ->withLabel('Dashboard')
                     ->withIcon('dashboard')
                     ->withUrl(new SerializableClosure(function (UrlGeneratorInterface $urlGenerator, BrandLocator $brandLocator) {
-                        return $urlGenerator->generate('/', ['brandId' => $brandLocator->getBrand()->getId()]);
+                        return $urlGenerator->generate('/dashboard/default/index', ['brandId' => $brandLocator->getBrand()->getId()]);
                     })),
             ],
         ],
