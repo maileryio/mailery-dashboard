@@ -24,7 +24,8 @@
         "phan/phan": "^2.4",
         "friendsofphp/php-cs-fixer": "^2.16",
         "maileryio/mailery-menu": "dev-master",
-        "maileryio/mailery-web": "dev-master"
+        "maileryio/mailery-web": "dev-master",
+        "maileryio/mailery-dashboard": "dev-master"
     },
     "autoload": {
         "psr-4": {
