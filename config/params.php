@@ -12,7 +12,6 @@ declare(strict_types=1);
 
 use Mailery\Dashboard\Controller\DefaultController;
 use Mailery\Menu\MenuItem;
-use Mailery\Brand\Service\BrandLocator;
 use Opis\Closure\SerializableClosure;
 use Yiisoft\Router\Route;
 use Yiisoft\Router\UrlGeneratorInterface;
@@ -31,8 +30,8 @@ return [
                 'dashboard' => (new MenuItem())
                     ->withLabel('Dashboard')
                     ->withIcon('dashboard')
-                    ->withUrl(new SerializableClosure(function (UrlGeneratorInterface $urlGenerator, BrandLocator $brandLocator) {
-                        return $urlGenerator->generate('/dashboard/default/index', ['brandId' => $brandLocator->getBrand()->getId()]);
+                    ->withUrl(new SerializableClosure(function (UrlGeneratorInterface $urlGenerator) {
+                        return $urlGenerator->generate('/dashboard/default/index');
                     })),
             ],
         ],
