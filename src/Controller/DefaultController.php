@@ -12,7 +12,8 @@ declare(strict_types=1);
 
 namespace Mailery\Dashboard\Controller;
 
-use Mailery\Dashboard\Controller;
+use Mailery\Common\Web\Controller;
+use Mailery\Brand\Service\BrandLocatorInterface;
 use Psr\Http\Message\ResponseInterface as Response;
 
 class DefaultController extends Controller
@@ -20,8 +21,10 @@ class DefaultController extends Controller
     /**
      * @return Response
      */
-    public function index(): Response
+    public function index(BrandLocatorInterface $brandLocator): Response
     {
+        $brandLocator->getBrand();
+
         return $this->render('index');
     }
 }
