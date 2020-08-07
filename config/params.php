@@ -29,7 +29,7 @@ return [
             'items' => [
                 'dashboard' => (new MenuItem())
                     ->withLabel('Dashboard')
-                    ->withIcon('dashboard')
+                    ->withIcon('dashboard-outline')
                     ->withUrl(new SerializableClosure(function (UrlGeneratorInterface $urlGenerator) {
                         return $urlGenerator->generate('/dashboard/default/index');
                     }))
