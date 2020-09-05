@@ -10,20 +10,11 @@ declare(strict_types=1);
  * @copyright Copyright (c) 2020, Mailery (https://mailery.io/)
  */
 
-use Mailery\Dashboard\Controller\DefaultController;
 use Mailery\Menu\MenuItem;
 use Opis\Closure\SerializableClosure;
-use Yiisoft\Router\Route;
 use Yiisoft\Router\UrlGeneratorInterface;
 
 return [
-    'router' => [
-        'routes' => [
-            '/dashboard/default/index' => Route::get('/brand/{brandId:\d+}', [DefaultController::class, 'index'])
-                ->name('/dashboard/default/index'),
-        ],
-    ],
-
     'menu' => [
         'sidebar' => [
             'items' => [

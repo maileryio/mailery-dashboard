@@ -12,12 +12,25 @@ declare(strict_types=1);
 
 namespace Mailery\Dashboard\Controller;
 
-use Mailery\Common\Web\Controller;
 use Mailery\Brand\Service\BrandLocatorInterface;
 use Psr\Http\Message\ResponseInterface as Response;
+use Mailery\Web\ViewRenderer;
 
-class DefaultController extends Controller
+class DefaultController
 {
+    /**
+     * @var ViewRenderer
+     */
+    private ViewRenderer $viewRenderer;
+
+    /**
+     * @param ViewRenderer $viewRenderer
+     */
+    public function __construct(ViewRenderer $viewRenderer)
+    {
+        $this->viewRenderer = $viewRenderer->withController($this);
+    }
+
     /**
      * @return Response
      */
@@ -25,6 +38,6 @@ class DefaultController extends Controller
     {
         $brandLocator->getBrand();
 
-        return $this->render('index');
+        return $this->viewRenderer->render('index');
     }
 }
