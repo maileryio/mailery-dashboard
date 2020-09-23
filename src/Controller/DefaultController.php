@@ -14,7 +14,7 @@ namespace Mailery\Dashboard\Controller;
 
 use Mailery\Brand\Service\BrandLocatorInterface;
 use Psr\Http\Message\ResponseInterface as Response;
-use Mailery\Web\ViewRenderer;
+use Yiisoft\Yii\View\ViewRenderer;
 
 class DefaultController
 {
@@ -28,7 +28,9 @@ class DefaultController
      */
     public function __construct(ViewRenderer $viewRenderer)
     {
-        $this->viewRenderer = $viewRenderer->withController($this);
+        $this->viewRenderer = $viewRenderer
+            ->withController($this)
+            ->withViewBasePath(dirname(dirname(__DIR__)) . '/views');
     }
 
     /**
