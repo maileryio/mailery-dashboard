@@ -10,21 +10,20 @@ declare(strict_types=1);
  * @copyright Copyright (c) 2020, Mailery (https://mailery.io/)
  */
 
-use Mailery\Menu\MenuItem;
-use Opis\Closure\SerializableClosure;
 use Yiisoft\Router\UrlGeneratorInterface;
 
 return [
-    'menu' => [
-        'sidebar' => [
-            'items' => [
-                'dashboard' => (new MenuItem())
-                    ->withLabel('Dashboard')
-                    ->withIcon('dashboard-outline')
-                    ->withUrl(new SerializableClosure(function (UrlGeneratorInterface $urlGenerator) {
-                        return $urlGenerator->generate('/dashboard/default/index');
-                    }))
-                    ->withOrder(100),
+    'maileryio/mailery-menu-sidebar' => [
+        'items' => [
+            'dashboard' => [
+                'label' => static function () {
+                    return 'Dashboard';
+                },
+                'icon' => 'dashboard-outline',
+                'url' => static function (UrlGeneratorInterface $urlGenerator) {
+                    return $urlGenerator->generate('/dashboard/default/index');
+                },
+                'order' => 100,
             ],
         ],
     ],
