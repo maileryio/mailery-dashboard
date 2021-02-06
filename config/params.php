@@ -23,7 +23,6 @@ return [
                 'url' => static function (UrlGeneratorInterface $urlGenerator) {
                     return $urlGenerator->generate('/dashboard/default/index');
                 },
-                'order' => 100,
             ],
         ],
     ],

@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace Mailery\Dashboard\Controller;
 
-use Mailery\Brand\Service\BrandLocatorInterface;
+use Mailery\Brand\BrandLocatorInterface;
 use Psr\Http\Message\ResponseInterface as Response;
 use Yiisoft\Yii\View\ViewRenderer;
 
