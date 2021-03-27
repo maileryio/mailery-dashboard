@@ -16,8 +16,9 @@ final class RouteCollectorServiceProvider extends ServiceProvider
         $collector = $container->get(RouteCollectorInterface::class);
 
         $collector->addRoute(
-            Route::get('/brand/{brandId:\d+}', [DefaultController::class, 'index'])
+            Route::get('/brand/{brandId:\d+}')
                 ->name('/dashboard/default/index')
+                ->action([DefaultController::class, 'index'])
         );
     }
 }
