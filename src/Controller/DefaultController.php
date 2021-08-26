@@ -30,7 +30,7 @@ class DefaultController
     {
         $this->viewRenderer = $viewRenderer
             ->withController($this)
-            ->withViewBasePath(dirname(dirname(__DIR__)) . '/views');
+            ->withViewPath(dirname(dirname(__DIR__)) . '/views');
     }
 
     /**
